@@ -205,7 +205,7 @@ void LslidarN301Decoder::publishScan()
 
     for (int i = 3600 - 1; i >= 0; i--)
 	{
-		if((i >= angle_min*10+1800) || (i < angle_max*10+1800))
+		if((i >= angle_max*10+1800) || (i < angle_min*10+1800))
 			scan->ranges[i] = std::numeric_limits<float>::infinity();
 	}
 
