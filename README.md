@@ -38,6 +38,11 @@ Each message corresponds to a lslidar packet sent by the device through the Ethe
 ### lslidar_n301_decoder
 
 **Parameters**
+`min_angle` (`double`, `-90`)
+
+`max_angle` (`double`, `90`)
+
+Points angle outside this [min_angle, max_angle] range will be set to inf.
 
 `min_range` (`double`, `0.3`)
 

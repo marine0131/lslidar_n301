@@ -36,8 +36,8 @@ LslidarN301Decoder::LslidarN301Decoder(
 bool LslidarN301Decoder::loadParameters() {
   pnh.param<double>("min_range", min_range, 0.5);
   pnh.param<double>("max_range", max_range, 100.0);
-  pnh.param<double>("angle_disable_min", angle_disable_min,-1);
-  pnh.param<double>("angle_disable_max", angle_disable_max, -1);
+  pnh.param<double>("angle_min", angle_min,-1);
+  pnh.param<double>("angle_max", angle_max, -1);
   pnh.param<double>("frequency", frequency, 20.0);
   pnh.param<bool>("publish_point_cloud", publish_point_cloud, true);
 
@@ -205,7 +205,7 @@ void LslidarN301Decoder::publishScan()
 
     for (int i = 3600 - 1; i >= 0; i--)
 	{
-		if((i >= angle_disable_min*10) && (i < angle_disable_max*10))
+		if((i >= angle_min*10+1800) || (i < angle_max*10+1800))
 			scan->ranges[i] = std::numeric_limits<float>::infinity();
 	}
 
