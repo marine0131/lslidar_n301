@@ -26,6 +26,9 @@ By default, the IP address of the device is 192.168.1.222.
 
 The frame ID entry for the sent messages.
 
+ udp_port  (int,   default: 2368)
+the remote device's port, not the lidar's, lidar's udp port always 2368
+
 **Published Topics**
 
 `lslidar_packets` (`lslidar_n301_msgs/LslidarN301Packet`)
@@ -63,15 +66,8 @@ This is only published when the `publish_point_cloud` is set to `true` in the la
 **Node**
 
 ```
-roslaunch lslidar_n301_decoder lslidar_n301.launch
+roslaunch lslidar_n301_decoder lslidar_n301_single.launch
 ```
 
 Note that this launch file launches both the driver and the decoder, which is the only launch file needed to be used.
 
-
-## FAQ
-
-
-## Bug Report
-
-Prefer to open an issue. You can also send an E-mail to shaohuashu@lslidar.com.
